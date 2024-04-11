@@ -4,7 +4,7 @@ const Schema = new mongoose.Schema({
         type: String,
         required: [true, "please enter the name"],
         trim: true,
-        maxLength: [20, "name cannot exceed 20 characters"],
+        maxLength: [30, "name cannot exceed 20 characters"],
     },
     photo: {
         type: String,

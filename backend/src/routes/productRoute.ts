@@ -6,10 +6,6 @@ import {
   updateProduct,
   deleteProduct,
   getOneProduct,
-  addToCart,
-  removeFromCart,
-  emptyCart,
-  getUserCart,
   getCategories,
 } from "../controllers/productController.js";
 import { AdminOnly } from "../middlewares/Auth.js";
@@ -23,15 +19,12 @@ productRouter.get("/all", getAllProducts);
 productRouter.get("/latest", getLatestProducts); 
 productRouter.get("/categories", getCategories);
 
-productRouter.post("/add-to-cart", addToCart);
-productRouter.delete("/remove-from-cart", removeFromCart);
-productRouter.delete("/empty-cart", emptyCart);
-productRouter.get("/get-user-cart", getUserCart);
 
 productRouter
   .route("/:id")
   .get(getOneProduct)
   .delete( deleteProduct)
-  .put(updateProduct);
+  .put(singleUpload,updateProduct);
+// export the router
 
 export default productRouter;
